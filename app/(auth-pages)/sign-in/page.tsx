@@ -1,55 +1,67 @@
-// import { signInAction } from "@/app/actions";
-// import { FormMessage, Message } from "@/components/form-message";
-// import { SubmitButton } from "@/components/submit-button";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
-// import Link from "next/link";
+import { AuthLayout } from "@/components/layout/auth/auth-layout";
+import { AuthForm } from "@/components/layout/auth/auth-form";
+import Link from "next/link";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { signInAction } from "@/app/actions";
+import type { Message } from "@/components/form-message";
 
-// export default async function Login(props: { searchParams: Promise<Message> }) {
-//   const searchParams = await props.searchParams;
-//   return (
-//     <form className="flex-1 flex flex-col min-w-64">
-//       <h1 className="text-2xl font-medium">Sign in</h1>
-//       <p className="text-sm text-foreground">
-//         Don't have an account?{" "}
-//         <Link className="text-foreground font-medium underline" href="/sign-up">
-//           Sign up
-//         </Link>
-//       </p>
-//       <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
-//         <Label htmlFor="email">Email</Label>
-//         <Input name="email" placeholder="you@example.com" required />
-//         <div className="flex justify-between items-center">
-//           <Label htmlFor="password">Password</Label>
-//           <Link
-//             className="text-xs text-foreground underline"
-//             href="/forgot-password"
-//           >
-//             Forgot Password?
-//           </Link>
-//         </div>
-//         <Input
-//           type="password"
-//           name="password"
-//           placeholder="Your password"
-//           required
-//         />
-//         <SubmitButton pendingText="Signing In..." formAction={signInAction}>
-//           Sign in
-//         </SubmitButton>
-//         <FormMessage message={searchParams} />
-//       </div>
-//     </form>
-//   );
-// }
+export default async function Login(props: { searchParams: Promise<Message> }) {
+  const searchParams = await props.searchParams;
 
-import React from 'react'
-
-export default function Login() {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <AuthLayout>
+      <AuthForm
+        title="Bienvenido de vuelta"
+        subtitle={
+          <div className="text-sm text-muted-foreground">
+            ¿No tienes una cuenta?{" "}
+            <Link
+              className="text-primary font-medium hover:underline"
+              href="/sign-up"
+            >
+              Regístrate
+            </Link>
+          </div>
+        }
+      >
+        <form className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="tu@ejemplo.com"
+              required
+            />
+          </div>
 
+          <div className="space-y-2">
+            <div className="flex justify-between items-center">
+              <Label htmlFor="password">Contraseña</Label>
+              <Link
+                className="text-sm text-primary hover:underline"
+                href="/forgot-password"
+              >
+                ¿Olvidaste tu contraseña?
+              </Link>
+            </div>
+            <Input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="Tu contraseña"
+              required
+            />
+          </div>
+
+          <Button className="w-full" formAction={signInAction}>
+            Iniciar sesión
+          </Button>
+        </form>
+      </AuthForm>
+    </AuthLayout>
+  );
+}

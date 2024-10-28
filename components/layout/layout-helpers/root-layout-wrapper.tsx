@@ -1,22 +1,28 @@
-import type React from "react";
-import { MainContent } from "./main-content";
-import { Header } from "../header/header";
-import Footer from "../footer/footer";
+import { AuthProvider } from '@/lib/hooks/use-auth'
+import { ThemeProvider } from 'next-themes'
+import { Header } from '../header/header'
+import Footer from '../footer/footer'
 
-interface RootLayoutWrapperProps {
-  children: React.ReactNode;
-  className?: string;
-}
-
-export const RootLayoutWrapper = ({
+export default function RootLayout({
   children,
-  className = "",
-}: RootLayoutWrapperProps) => {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <MainContent className={className}>{children}</MainContent>
-      <Footer />
-    </div>
-  );
-};
+    <html lang="en" suppressHydrationWarning>
+    <body suppressHydrationWarning>
+      <AuthProvider>
+        <ThemeProvider>
+          <div className="relative min-h-screen flex flex-col">
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer/>
+          </div>
+        </ThemeProvider>
+      </AuthProvider>
+    </body>
+  </html>
+  )
+}

@@ -1,6 +1,6 @@
 import { Providers } from "@/components/layout/providers";
 import "./globals.css";
-import { RootLayoutWrapper } from "@/components/layout/layout-helpers/root-layout-wrapper";
+import RootLayoutWrapper from "@/components/layout/layout-helpers/root-layout-wrapper";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`

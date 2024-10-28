@@ -1,62 +1,62 @@
-// import { signUpAction } from "@/app/actions";
-// import { FormMessage, Message } from "@/components/form-message";
-// import { SubmitButton } from "@/components/submit-button";
-// import { Input } from "@/components/ui/input";
-// import { Label } from "@/components/ui/label";
-// import Link from "next/link";
-// import { SmtpMessage } from "../smtp-message";
+import { signUpAction } from "@/app/actions";
+import type { Message } from "@/components/form-message";
+import { AuthForm } from "@/components/layout/auth/auth-form";
+import { AuthLayout } from "@/components/layout/auth/auth-layout";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import Link from "next/link";
 
-// export default async function Signup(props: {
-//   searchParams: Promise<Message>;
-// }) {
-//   const searchParams = await props.searchParams;
-//   if ("message" in searchParams) {
-//     return (
-//       <div className="w-full flex-1 flex items-center h-screen sm:max-w-md justify-center gap-2 p-4">
-//         <FormMessage message={searchParams} />
-//       </div>
-//     );
-//   }
+export default async function Signup(props: {
+  searchParams: Promise<Message>;
+}) {
+  const searchParams = await props.searchParams;
 
-//   return (
-//     <>
-//       <form className="flex flex-col min-w-64 max-w-64 mx-auto">
-//         <h1 className="text-2xl font-medium">Sign up</h1>
-//         <p className="text-sm text text-foreground">
-//           Already have an account?{" "}
-//           <Link className="text-primary font-medium underline" href="/sign-in">
-//             Sign in
-//           </Link>
-//         </p>
-//         <div className="flex flex-col gap-2 [&>input]:mb-3 mt-8">
-//           <Label htmlFor="email">Email</Label>
-//           <Input name="email" placeholder="you@example.com" required />
-//           <Label htmlFor="password">Password</Label>
-//           <Input
-//             type="password"
-//             name="password"
-//             placeholder="Your password"
-//             minLength={6}
-//             required
-//           />
-//           <SubmitButton formAction={signUpAction} pendingText="Signing up...">
-//             Sign up
-//           </SubmitButton>
-//           <FormMessage message={searchParams} />
-//         </div>
-//       </form>
-//       <SmtpMessage />
-//     </>
-//   );
-// }
-
-import React from 'react'
-
-export default function Signup() {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <AuthLayout>
+      <AuthForm
+        title="Crear cuenta"
+        subtitle={
+          <div className="text-sm text-muted-foreground">
+            ¿Ya tienes una cuenta?{" "}
+            <Link
+              className="text-primary font-medium hover:underline"
+              href="/sign-in"
+            >
+              Inicia sesión
+            </Link>
+          </div>
+        }
+      >
+        <form className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="tu@ejemplo.com"
+              required
+            />
+          </div>
 
+          <div className="space-y-2">
+            <Label htmlFor="password">Contraseña</Label>
+            <Input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="Crea una contraseña"
+              minLength={6}
+              required
+            />
+          </div>
+
+          <Button className="w-full" formAction={signUpAction}>
+            Crear cuenta
+          </Button>
+        </form>
+      </AuthForm>
+    </AuthLayout>
+  );
+}

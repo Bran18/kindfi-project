@@ -15,24 +15,52 @@ export const signUpAction = async (formData: FormData) => {
     return { error: "Email and password are required" };
   }
 
-  const { error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      emailRedirectTo: `${origin}/auth/callback`,
-    },
-  });
+  try {
+    // Add timeout handling
+    const signUpPromise = supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        emailRedirectTo: `${origin}/auth/callback`,
+        data: {
+          // Add any additional user metadata here
+        }
+      },
+    });
 
-  if (error) {
-    // biome-ignore lint/style/useTemplate: <explanation>
-    console.error(error.code + " " + error.message);
-    return encodedRedirect("error", "/sign-up", error.message);
-  // biome-ignore lint/style/noUselessElse: <explanation>
-  } else {
+    // Set a timeout of 15 seconds
+    const timeoutPromise = new Promise((_, reject) => {
+      setTimeout(() => {
+        reject(new Error('Signup request timed out'));
+      }, 15000);
+    });
+
+    const { error, data } = await Promise.race([
+      signUpPromise,
+      timeoutPromise,
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+    ]) as any;
+
+    if (error) {
+      console.error("Signup error:", error.message);
+      return encodedRedirect("error", "/sign-up", error.message);
+    }
+
+    // Check if the email was sent successfully
+    if (data?.user && !error) {
+      return encodedRedirect(
+        "success",
+        "/sign-up",
+        "Thanks for signing up! Please check your email for a verification link.",
+      );
+    }
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  } catch (error: any) {
+    console.error("Signup process failed:", error);
     return encodedRedirect(
-      "success",
+      "error",
       "/sign-up",
-      "Thanks for signing up! Please check your email for a verification link.",
+      "The signup process timed out. Please try again.",
     );
   }
 };
