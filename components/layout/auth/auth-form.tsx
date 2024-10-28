@@ -5,6 +5,8 @@ interface AuthFormProps {
   title: string
   subtitle?: React.ReactNode
   className?: string
+  footerContent?: React.ReactNode
+
 }
 
 export function AuthForm({
