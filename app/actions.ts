@@ -4,66 +4,25 @@ import { encodedRedirect } from "@/utils/utils";
 import { createClient } from "@/utils/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
-export const signUpAction = async (formData: FormData) => {
-  const email = formData.get("email")?.toString();
-  const password = formData.get("password")?.toString();
-  const supabase = await createClient();
-  const origin = (await headers()).get("origin");
+export async function signUpAction(formData: FormData): Promise<{ error?: string; success?: string }> {
+  const supabase = await createClient()
 
-  if (!email || !password) {
-    return { error: "Email and password are required" };
+  const data = {
+    email: formData.get('email') as string,
+    password: formData.get('password') as string,
   }
 
-  try {
-    // Add timeout handling
-    const signUpPromise = supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${origin}/auth/callback`,
-        data: {
-          // Add any additional user metadata here
-        }
-      },
-    });
+  const { error } = await supabase.auth.signUp(data)
 
-    // Set a timeout of 15 seconds
-    const timeoutPromise = new Promise((_, reject) => {
-      setTimeout(() => {
-        reject(new Error('Signup request timed out'));
-      }, 15000);
-    });
-
-    const { error, data } = await Promise.race([
-      signUpPromise,
-      timeoutPromise,
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-    ]) as any;
-
-    if (error) {
-      console.error("Signup error:", error.message);
-      return encodedRedirect("error", "/sign-up", error.message);
-    }
-
-    // Check if the email was sent successfully
-    if (data?.user && !error) {
-      return encodedRedirect(
-        "success",
-        "/sign-up",
-        "Thanks for signing up! Please check your email for a verification link.",
-      );
-    }
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  } catch (error: any) {
-    console.error("Signup process failed:", error);
-    return encodedRedirect(
-      "error",
-      "/sign-up",
-      "The signup process timed out. Please try again.",
-    );
+  if (error) {
+    redirect('/error')
   }
-};
+
+  revalidatePath('/', 'layout')
+  redirect('/')
+}
 
 export const signInAction = async (formData: FormData) => {
   const email = formData.get("email") as string;
@@ -79,7 +38,7 @@ export const signInAction = async (formData: FormData) => {
     return encodedRedirect("error", "/sign-in", error.message);
   }
 
-  return redirect("/protected");
+  return redirect("/");
 };
 
 export const forgotPasswordAction = async (formData: FormData) => {
@@ -101,7 +60,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
     return encodedRedirect(
       "error",
       "/forgot-password",
-      "Could not reset password",
+      "Could not reset password"
     );
   }
 
@@ -112,7 +71,7 @@ export const forgotPasswordAction = async (formData: FormData) => {
   return encodedRedirect(
     "success",
     "/forgot-password",
-    "Check your email for a link to reset your password.",
+    "Check your email for a link to reset your password."
   );
 };
 
@@ -126,7 +85,7 @@ export const resetPasswordAction = async (formData: FormData) => {
     encodedRedirect(
       "error",
       "/protected/reset-password",
-      "Password and confirm password are required",
+      "Password and confirm password are required"
     );
   }
 
@@ -134,7 +93,7 @@ export const resetPasswordAction = async (formData: FormData) => {
     encodedRedirect(
       "error",
       "/protected/reset-password",
-      "Passwords do not match",
+      "Passwords do not match"
     );
   }
 
@@ -146,7 +105,7 @@ export const resetPasswordAction = async (formData: FormData) => {
     encodedRedirect(
       "error",
       "/protected/reset-password",
-      "Password update failed",
+      "Password update failed"
     );
   }
 

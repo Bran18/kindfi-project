@@ -13,7 +13,9 @@ export const updateSession = async (request: NextRequest) => {
     });
 
     const supabase = createServerClient(
+      // biome-ignore lint/style/noNonNullAssertion: <explanation>
       process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      // biome-ignore lint/style/noNonNullAssertion: <explanation>
       process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
       {
         cookies: {
@@ -21,32 +23,25 @@ export const updateSession = async (request: NextRequest) => {
             return request.cookies.getAll();
           },
           setAll(cookiesToSet) {
+            // biome-ignore lint/complexity/noForEach: <explanation>
             cookiesToSet.forEach(({ name, value }) =>
-              request.cookies.set(name, value),
+              request.cookies.set(name, value)
             );
             response = NextResponse.next({
               request,
             });
+            // biome-ignore lint/complexity/noForEach: <explanation>
             cookiesToSet.forEach(({ name, value, options }) =>
-              response.cookies.set(name, value, options),
+              response.cookies.set(name, value, options)
             );
           },
         },
-      },
+      }
     );
 
     // This will refresh session if expired - required for Server Components
     // https://supabase.com/docs/guides/auth/server-side/nextjs
     const user = await supabase.auth.getUser();
-
-    // protected routes
-    if (request.nextUrl.pathname.startsWith("/protected") && user.error) {
-      return NextResponse.redirect(new URL("/sign-in", request.url));
-    }
-
-    if (request.nextUrl.pathname === "/" && !user.error) {
-      return NextResponse.redirect(new URL("/protected", request.url));
-    }
 
     return response;
   } catch (e) {

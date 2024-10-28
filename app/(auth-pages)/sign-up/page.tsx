@@ -1,16 +1,43 @@
-import { signUpAction } from "@/app/actions";
-import type { Message } from "@/components/form-message";
-import { AuthForm } from "@/components/layout/auth/auth-form";
-import { AuthLayout } from "@/components/layout/auth/auth-layout";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import Link from "next/link";
+// app/(auth)/sign-up/page.tsx
+'use client'
 
-export default async function Signup(props: {
-  searchParams: Promise<Message>;
+import { signUpAction } from "@/app/actions"
+import { FormMessage, type Message } from "@/components/form-message"
+import { AuthForm } from "@/components/layout/auth/auth-form"
+import { AuthLayout } from "@/components/layout/auth/auth-layout"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { useState } from "react"
+import Link from "next/link"
+
+// Define the action response type
+interface SignUpResponse {
+  error?: string;
+  success?: string;
+}
+
+export default function Signup({ 
+  searchParams 
+}: { 
+  searchParams: Message 
 }) {
-  const searchParams = await props.searchParams;
+  const [isLoading, setIsLoading] = useState(false)
+
+  async function handleSignUp(formData: FormData) {
+    try {
+      setIsLoading(true)
+      const result = await signUpAction(formData) as SignUpResponse
+      
+      if (result?.error) {
+        console.error(result.error)
+      }
+    } catch (error) {
+      console.error('Signup error:', error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <AuthLayout>
@@ -28,7 +55,7 @@ export default async function Signup(props: {
           </div>
         }
       >
-        <form className="space-y-4">
+        <form action={handleSignUp} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
             <Input
@@ -37,6 +64,8 @@ export default async function Signup(props: {
               type="email"
               placeholder="tu@ejemplo.com"
               required
+              disabled={isLoading}
+              className="bg-background"
             />
           </div>
 
@@ -49,14 +78,21 @@ export default async function Signup(props: {
               placeholder="Crea una contraseña"
               minLength={6}
               required
+              disabled={isLoading}
+              className="bg-background"
             />
           </div>
 
-          <Button className="w-full" formAction={signUpAction}>
-            Crear cuenta
+          <Button 
+            className="w-full" 
+            type="submit"
+            disabled={isLoading}
+          >
+            {isLoading ? "Creando cuenta..." : "Crear cuenta"}
           </Button>
         </form>
       </AuthForm>
+    
     </AuthLayout>
-  );
+  )
 }
