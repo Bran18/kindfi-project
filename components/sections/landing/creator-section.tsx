@@ -79,11 +79,11 @@ const CreatorSection = () => {
           <div className="space-y-8">
             {/* Placeholder for founder image */}
             <div className="bg-white rounded-lg p-6 shadow-sm max-w-md mx-auto">
-              <img
+              {/* <img
                 src="/api/placeholder/400/300"
                 alt="Platform founder"
                 className="w-full h-auto rounded"
-              />
+              /> */}
             </div>
 
             {/* CTA Section */}

@@ -10,22 +10,22 @@ import LatamWeb3Platform from "@/components/sections/landing/showcast-section";
 
 const projects = [
   {
-    image: "/project-1.jpg",
-    category: "Educación Digital",
+    image: "/images/kids.webp",
+    category: "Apoyo a la Niñez",
     title: "Taller Niño Sano",
-    description: "Espacios para Niños en Zonas Urbano Marginales",
+    description: "Alimenta a niños en riesgo de desnutrición de Costa Rica.",
     currentAmount: 22800,
     targetAmount: 25000,
     investors: 18,
     minInvestment: 5,
     percentageComplete: 90,
-    tags: ["ONG", "AMAZON SMILE", "SUBZERO"]
+    tags: ["ONG", "ALIMENTACION", "NIÑOS"]
   },
   {
-    image: "/project-2.jpg",
+    image: "/images/bosques.webp",
     category: "Protección Ambiental",
-    title: "Reforestación del Amazonas",
-    description: "Reforesta áreas afectadas por la deforestación en la selva amazónica.",
+    title: "Reforestación de Bosques",
+    description: "Reforesta áreas afectadas por la deforestación descontrolada.",
     currentAmount: 54000,
     targetAmount: 60000,
     investors: 35,
@@ -34,9 +34,9 @@ const projects = [
     tags: ["MEDIO AMBIENTE", "ECOLÓGICO", "SOSTENIBLE"]
   },
   {
-    image: "/project-3.jpg",
+    image: "/images/dogs.webp",
     category: "Bienestar Animal",
-    title: "Refugio de Animales Abandonados",
+    title: "Refugio de Animales",
     description: "Brinda cuidados y albergue a animales sin hogar en comunidades rurales.",
     currentAmount: 15500,
     targetAmount: 20000,
@@ -46,7 +46,7 @@ const projects = [
     tags: ["ANIMALES", "CUIDADO", "COMUNIDAD"]
   },
   {
-    image: "/project-4.jpg",
+    image: "/images/artesania.webp",
     category: "Cultura y Arte",
     title: "Rescate de Artesanía Indígena",
     description: "Promueve la preservación de técnicas artesanales indígenas en Costa Rica.",

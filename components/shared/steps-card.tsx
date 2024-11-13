@@ -4,7 +4,7 @@ interface StepCardProps {
   stepNumber: number;
   title: string;
   description: string;
-  imageSrc: string;
+  Icon: React.ComponentType;
   imageAlt: string;
   isReversed?: boolean;
 }
@@ -13,7 +13,7 @@ export const StepCard = ({
   stepNumber,
   title,
   description,
-  imageSrc,
+  Icon,
   imageAlt,
   isReversed = false,
 }: StepCardProps) => {
@@ -25,11 +25,7 @@ export const StepCard = ({
       <div className="w-full md:w-1/2">
         <Card className="bg-blue-50 border-none">
           <CardContent className="p-8 flex justify-center items-center">
-            <img
-              src={imageSrc}
-              alt={imageAlt}
-              className="w-48 h-48 object-contain"
-            />
+            <Icon /> {/* Just render the Icon component directly */}
           </CardContent>
         </Card>
       </div>

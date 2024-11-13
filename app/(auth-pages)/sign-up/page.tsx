@@ -1,98 +1,101 @@
-// app/(auth)/sign-up/page.tsx
-'use client'
+import { signUpAction } from "@/app/actions";
+import { FormMessage, type Message } from "@/components/form-message";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import Link from "next/link";
+import { Mail, Lock, UserPlus } from "lucide-react";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 
-import { signUpAction } from "@/app/actions"
-import { FormMessage, type Message } from "@/components/form-message"
-import { AuthForm } from "@/components/layout/auth/auth-form"
-import { AuthLayout } from "@/components/layout/auth/auth-layout"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useState } from "react"
-import Link from "next/link"
-
-// Define the action response type
-interface SignUpResponse {
-  error?: string;
-  success?: string;
-}
-
-export default function Signup({ 
-  searchParams 
-}: { 
-  searchParams: Message 
-}) {
-  const [isLoading, setIsLoading] = useState(false)
-
-  async function handleSignUp(formData: FormData) {
-    try {
-      setIsLoading(true)
-      const result = await signUpAction(formData) as SignUpResponse
-      
-      if (result?.error) {
-        console.error(result.error)
-      }
-    } catch (error) {
-      console.error('Signup error:', error)
-    } finally {
-      setIsLoading(false)
-    }
-  }
+  export default async function Signup(props: {
+    searchParams: Promise<Message>;
+  }) {
+  // Show success message if registration was successful
+  // if (searchParams.success) {
+  //   return (
+  //     <div className="w-full flex items-center justify-center p-4">
+  //       <Card className="w-full max-w-md">
+  //         <CardContent className="pt-6">
+  //           <FormMessage message={searchParams} />
+  //         </CardContent>
+  //       </Card>
+  //     </div>
+  //   );
+  // }
 
   return (
-    <AuthLayout>
-      <AuthForm
-        title="Crear cuenta"
-        subtitle={
-          <div className="text-sm text-muted-foreground">
-            ¿Ya tienes una cuenta?{" "}
+    <div className="flex min-h-screen items-center justify-center p-4 bg-gradient-to-b from-background/50 to-muted/50">
+      <Card className="w-full max-w-md">
+        <CardHeader className="space-y-2 text-center">
+          <div className="flex justify-center mb-4">
+            <div className="rounded-full bg-primary/10 p-4">
+              <UserPlus className="h-6 w-6 text-primary" />
+            </div>
+          </div>
+          <h1 className="text-2xl font-semibold tracking-tight">
+            Create an account
+          </h1>
+          <p className="text-sm text-muted-foreground">
+            Enter your email below to create your account
+          </p>
+        </CardHeader>
+        <CardContent>
+          <form className="space-y-4">
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="you@example.com"
+                    className="pl-10"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="password">Password</Label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                  <Input
+                    id="password"
+                    name="password"
+                    type="password"
+                    placeholder="Create a password"
+                    className="pl-10"
+                    required
+                    minLength={6}
+                  />
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Must be at least 6 characters long
+                </p>
+              </div>
+
+              <Button className="w-full" formAction={signUpAction}>
+                Create account
+              </Button>
+            </div>
+
+            {/* <FormMessage message={searchParams} /> */}
+          </form>
+        </CardContent>
+        <CardFooter className="flex flex-col space-y-4 border-t p-6">
+          <div className="text-center text-sm text-muted-foreground">
+            Already have an account?{" "}
             <Link
-              className="text-primary font-medium hover:underline"
               href="/sign-in"
+              className="text-primary underline hover:text-primary/80"
             >
-              Inicia sesión
+              Sign in
             </Link>
           </div>
-        }
-      >
-        <form action={handleSignUp} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="tu@ejemplo.com"
-              required
-              disabled={isLoading}
-              className="bg-background"
-            />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="password">Contraseña</Label>
-            <Input
-              id="password"
-              type="password"
-              name="password"
-              placeholder="Crea una contraseña"
-              minLength={6}
-              required
-              disabled={isLoading}
-              className="bg-background"
-            />
-          </div>
-
-          <Button 
-            className="w-full" 
-            type="submit"
-            disabled={isLoading}
-          >
-            {isLoading ? "Creando cuenta..." : "Crear cuenta"}
-          </Button>
-        </form>
-      </AuthForm>
-    
-    </AuthLayout>
-  )
+        </CardFooter>
+      </Card>
+    </div>
+  );
 }
