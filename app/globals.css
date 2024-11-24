@@ -156,6 +156,7 @@
 
 .gradient-border-btn:hover {
   @apply border-blue-800 to-purple-600;
+  @apply text-blue-600;
 }
 
 .gradient-bg {
