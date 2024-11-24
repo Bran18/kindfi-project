@@ -27,17 +27,14 @@ export const ProjectsShowcase = ({
   projects,
 }: ProjectsShowcaseProps) => {
   return (
-    <section className="w-full px-4 py-20 sm:px-6 lg:px-8">
+    <section className="w-full px-4 py-10 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-[1400px]">
         <SectionCaption
           title={title}
           subtitle={subtitle}
           highlightWords={[
-            "Social",
-            "Ambiental",
-            "Animal",
-            "Artístico",
-            "Cultural",
+            "Better World",
+            "Change Lives",
           ]}
         />
 
@@ -72,8 +69,8 @@ export const ProjectsShowcase = ({
 
         <div className="mt-12 flex justify-center">
           <CTAButtons
-            primaryText="Registrar Proyecto"
-            secondaryText="Explora Todos"
+            primaryText="Register Your Project"
+            secondaryText="Explore Causes"
           />
         </div>
       </div>

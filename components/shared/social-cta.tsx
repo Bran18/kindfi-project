@@ -3,6 +3,7 @@ import { Button } from "../ui/button";
 interface SocialButtonProps {
   icon: React.ReactNode;
   provider: string;
+  className: string;
   onClick: () => void;
 }
 

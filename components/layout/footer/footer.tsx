@@ -3,93 +3,82 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import {
-  DiscordLogoIcon,
-  GitHubLogoIcon,
-  LinkedInLogoIcon,
-  TwitterLogoIcon,
-} from "@radix-ui/react-icons";
-import { Send } from "lucide-react";
+import { Facebook, Send, Twitter, X } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
   const mainLinks = [
     {
-      title: "Proyectos",
+      title: "Projects",
       links: [
-        { label: "Explorar Proyectos", href: "/projects" },
-        { label: "Crear Proyecto", href: "/create" },
-        { label: "Proyectos Destacados", href: "/featured" },
-        { label: "Impacto Social", href: "/impact" },
+        { label: "Social Projects", href: "/projects" },
+        { label: "Start a Campaign", href: "/create" },
+        { label: "Featured Projects", href: "/featured" },
+        { label: "Recent Investments", href: "/investments" },
       ],
     },
     {
-      title: "Recursos",
+      title: "Resources",
       links: [
-        { label: "Guía Web3", href: "/guide" },
-        { label: "Documentación", href: "/docs" },
-        { label: "Tutorial", href: "/tutorial" },
+        { label: "Investor Guide", href: "/guide" },
+        { label: "Documentation", href: "/docs" },
+        { label: "Tutorials", href: "/tutorials" },
         { label: "FAQs", href: "/faqs" },
       ],
     },
     {
       title: "Legal",
       links: [
-        { label: "Términos de Uso", href: "/terms" },
-        { label: "Política de Privacidad", href: "/privacy" },
-        { label: "Cookies", href: "/cookies" },
-        { label: "Licencias", href: "/licenses" },
+        { label: "Terms of Use", href: "/terms" },
+        { label: "Privacy Policy", href: "/privacy" },
+        { label: "Cookie Policy", href: "/cookies" },
+        { label: "Licenses", href: "/licenses" },
       ],
     },
   ];
 
   const socialLinks = [
     {
-      icon: <TwitterLogoIcon className="h-5 w-5" />,
-      href: "https://twitter.com/kindfi",
+      icon: <Twitter className="h-5 w-5" />,
+      href: "https://twitter.com/kind-fi",
       label: "Twitter",
     },
     {
-      icon: <DiscordLogoIcon className="h-5 w-5" />,
-      href: "https://discord.gg/kindfi",
-      label: "Discord",
+      icon: <Facebook className="h-5 w-5" />,
+      href: "https://facebook.com/kind-fi",
+      label: "Facebook",
     },
     {
-      icon: <GitHubLogoIcon className="h-5 w-5" />,
-      href: "https://github.com/kindfi",
-      label: "GitHub",
-    },
-    {
-      icon: <LinkedInLogoIcon className="h-5 w-5" />,
-      href: "https://linkedin.com/company/kindfi",
+      icon: <X className="h-5 w-5" />,
+      href: "https://linkedin.com/company/kin-fi",
       label: "LinkedIn",
     },
   ];
 
   return (
-    <footer className="border-t bg-background">
+    <footer className="border-t bg-gray-50">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand Column */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="flex items-center space-x-2">
-              <span className="text-xl font-bold">Kindfi</span>
+              <span className="text-xl font-bold text-black">KindFi</span>
             </Link>
-            <p className="text-sm text-muted-foreground">
-              Plataforma Web3 para financiamiento de proyectos sociales y ambientales a través de smart contracts y blockchain.
+            <p className="text-sm text-gray-600">
+            The first Web3 platform connecting supporters to impactful causes while driving blockchain adoption for social and environmental change.
             </p>
             {/* Newsletter Subscription */}
             <div className="mt-4">
-              <h3 className="mb-2 text-sm font-semibold">Mantente Informado</h3>
+              <h3 className="mb-2 text-sm font-semibold">Keep in touch</h3>
               <div className="flex gap-2">
                 <Input 
                   type="email" 
                   placeholder="tu@email.com" 
                   className="max-w-[200px]"
                 />
-                <Button size="sm">
-                  <Send className="h-4 w-4" />
+                <Button size="sm" className="bg-teal-600 hover:bg-teal-900 text-white">
+                  Keep in touch
                 </Button>
               </div>
             </div>
@@ -98,13 +87,13 @@ const Footer = () => {
           {/* Links Columns */}
           {mainLinks.map((column) => (
             <div key={column.title}>
-              <h3 className="mb-3 text-sm font-semibold">{column.title}</h3>
+              <h3 className="mb-3 text-sm font-semibold text-black">{column.title}</h3>
               <ul className="space-y-2">
                 {column.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                      className="text-sm text-gray-600 hover:text-emerald-700 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -125,41 +114,25 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
+                  className="text-gray-600 hover:text-green-700 transition-colors"
                   aria-label={link.label}
                 >
                   {link.icon}
                 </a>
               ))}
             </div>
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Kindfi. Todos los derechos reservados.
+            <p className="text-sm text-gray-600">
+              © {new Date().getFullYear()} KindFi. All rights reserved.
             </p>
             <div className="flex items-center gap-2">
               <Button variant="outline" size="sm">
-                Documentación
+                Documentation
               </Button>
               <Button variant="outline" size="sm">
-                Contacto
+                Contact
               </Button>
             </div>
           </div>
-        </div>
-
-        {/* Trust Indicators */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4 border-t pt-8 text-sm text-muted-foreground">
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-green-500" />
-            Smart Contracts
-          </span>
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-blue-500" />
-            Regristro Blockchain
-          </span>
-          <span className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-purple-500" />
-            Impacto Social Verificable
-          </span>
         </div>
       </div>
     </footer>

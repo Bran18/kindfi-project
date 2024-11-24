@@ -3,7 +3,6 @@ import { Card, CardContent, CardFooter, CardHeader } from "../ui/card";
 import { Progress } from "../ui/progress";
 import Image from "next/image";
 
-
 export interface ProjectCardProps {
   image: string;
   category: string;
@@ -31,19 +30,16 @@ export const ProjectCard = ({
 }: ProjectCardProps) => {
   return (
     <Card className="h-full flex flex-col overflow-hidden transition-shadow hover:shadow-lg">
-       {/* Image Container - Fixed height */}
-       <div className="relative w-full h-48 flex-shrink-0">
-        <Image 
-          src={image} 
-          alt={title} 
+      {/* Image Container - Fixed height */}
+      <div className="relative w-full h-48 flex-shrink-0">
+        <Image
+          src={image}
+          alt={title}
           fill
           className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <Badge 
-          className="absolute left-4 top-4 z-10" 
-          variant="secondary"
-        >
+        <Badge className="absolute left-4 top-4 z-10" variant="secondary">
           {category}
         </Badge>
       </div>
@@ -69,16 +65,18 @@ export const ProjectCard = ({
 
             <div className="grid grid-cols-3 gap-4 text-center">
               <div>
-                <p className="font-semibold">${currentAmount.toLocaleString()}</p>
-                <p className="text-xs text-gray-600">Meta</p>
+                <p className="font-semibold">
+                  ${currentAmount.toLocaleString()}
+                </p>
+                <p className="text-xs text-gray-600">Goal</p>
               </div>
               <div>
                 <p className="font-semibold">{investors}</p>
-                <p className="text-xs text-gray-600">Impulsadores</p>
+                <p className="text-xs text-gray-600">Supporters</p>
               </div>
               <div>
                 <p className="font-semibold">${minInvestment}</p>
-                <p className="text-xs text-gray-600">Min. Aporte</p>
+                <p className="text-xs text-gray-600">Min. Support</p>
               </div>
             </div>
           </div>
@@ -87,8 +85,10 @@ export const ProjectCard = ({
         <CardFooter className="flex-shrink-0 flex flex-wrap gap-2 mt-auto">
           {tags.map((tag, index) => (
             <Badge
-              key={`tag-${// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-index}`}
+              key={`tag-${
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                index
+              }`}
               variant="outline"
             >
               {tag}

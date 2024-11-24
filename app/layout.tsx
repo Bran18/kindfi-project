@@ -9,7 +9,7 @@ const defaultUrl = process.env.VERCEL_URL
 export const metadata = {
   metadataBase: new URL(defaultUrl),
   title: "KindFi",
-  description: "Web3 colaborando en el mundo",
+  description: "The first Web3 platform connecting supporters to impactful causes while driving blockchain adoption for social and environmental change",
 };
 
 export default function RootLayout({

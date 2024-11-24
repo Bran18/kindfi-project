@@ -36,7 +36,7 @@ export const Header = () => {
         <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold">Kindfi</span>
+            <span className="text-xl font-bold">KindFi</span>
           </Link>
 
           {/* Navigation - Hidden on mobile */}
@@ -96,7 +96,7 @@ const UserMenu = ({ user }: { user: User }) => {
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
             <p className="text-sm font-medium">{user.email}</p>
-            <p className="text-xs text-muted-foreground">Cuenta personal</p>
+            <p className="text-xs text-muted-foreground">Account</p>
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
@@ -109,7 +109,7 @@ const UserMenu = ({ user }: { user: User }) => {
         <DropdownMenuItem asChild>
           <Link href="/settings" className="cursor-pointer">
             <Settings className="mr-2 h-4 w-4" />
-            Configuración
+            Config
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
@@ -117,7 +117,7 @@ const UserMenu = ({ user }: { user: User }) => {
           <form action={signOutAction} className="w-full">
             <button type="submit" className="flex w-full items-center">
               <LogOut className="mr-2 h-4 w-4" />
-              Cerrar sesión
+              Close session
             </button>
           </form>
         </DropdownMenuItem>
@@ -131,12 +131,12 @@ const AuthButtons = () => {
     <div className="flex items-center gap-2">
       <Link href="/sign-in" passHref>
         <Button variant="ghost" size="sm" className="hidden sm:inline-flex">
-          Iniciar Sesión
+          Sign in
         </Button>
       </Link>
       <Link href="/sign-up" passHref>
         <Button variant="default" size="sm" className="hidden sm:inline-flex">
-          Registrarse
+          Sign up
         </Button>
       </Link>
     </div>
@@ -150,13 +150,13 @@ const MobileNavigation = () => {
         href="/projects"
         className="text-sm font-medium transition-colors hover:text-primary"
       >
-        Proyectos
+        Social Projects
       </Link>
       <Link
         href="/about"
         className="text-sm font-medium transition-colors hover:text-primary"
       >
-        Sobre Nosotros
+        About KindFi
       </Link>
       {/* Add other navigation items */}
     </nav>
@@ -174,7 +174,7 @@ const MobileUserMenu = ({ user }: { user: User }) => {
         </Avatar>
         <div className="space-y-1">
           <p className="text-sm font-medium">{user.email}</p>
-          <p className="text-xs text-muted-foreground">Cuenta personal</p>
+          <p className="text-xs text-muted-foreground">Account</p>
         </div>
       </div>
       <div className="flex flex-col space-y-2">
@@ -187,7 +187,7 @@ const MobileUserMenu = ({ user }: { user: User }) => {
         <Link href="/settings">
           <Button variant="ghost" className="w-full justify-start">
             <Settings className="mr-2 h-4 w-4" />
-            Configuración
+            Config
           </Button>
         </Link>
         <form action={signOutAction}>
@@ -197,7 +197,7 @@ const MobileUserMenu = ({ user }: { user: User }) => {
             type="submit"
           >
             <LogOut className="mr-2 h-4 w-4" />
-            Cerrar sesión
+            Close session
           </Button>
         </form>
       </div>
@@ -210,12 +210,12 @@ const MobileAuthButtons = () => {
     <div className="flex flex-col space-y-2">
       <Link href="/sign-in">
         <Button variant="ghost" className="w-full justify-start">
-          Iniciar Sesión
+          Sign in
         </Button>
       </Link>
       <Link href="/sign-up">
         <Button variant="default" className="w-full justify-start">
-          Registrarse
+          Sign up
         </Button>
       </Link>
     </div>

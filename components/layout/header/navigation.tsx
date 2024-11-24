@@ -16,37 +16,37 @@ import {
 
 const projects = [
   {
-    title: "Explorar Proyectos",
+    title: "Explore Projects",
     href: "/projects",
-    description: "Descubre iniciativas sociales verificadas en blockchain"
+    description: "Discover verified social initiatives powered by blockchain"
   },
   {
-    title: "Crear Proyecto",
+    title: "Create a Project",
     href: "/create",
-    description: "Inicia tu campaña de impacto social con Web3"
+    description: "Start your social impact campaign with Web3 technology"
   },
   {
-    title: "Proyectos Destacados",
+    title: "Featured Projects",
     href: "/featured",
-    description: "Las iniciativas más exitosas de nuestra comunidad"
+    description: "Explore the most successful initiatives from our community"
   }
 ]
 
 const resources = [
   {
-    title: "Aprende Web3",
+    title: "Learn Web3",
     href: "/learn",
-    description: "Guías y recursos para entender blockchain y crypto"
+    description: "Access guides and resources to understand blockchain and crypto"
   },
   {
-    title: "Comunidad DAO",
+    title: "Community",
     href: "/community",
-    description: "Únete a nuestra comunidad descentralizada"
+    description: "Join our decentralized and collaborative community"
   },
   {
-    title: "Impacto Social",
+    title: "Social Impact",
     href: "/impact",
-    description: "Métricas y resultados de proyectos sociales"
+    description: "Track metrics and results from impactful social projects"
   }
 ]
 
@@ -57,7 +57,7 @@ export function Navigation() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Proyectos</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {projects.map((project) => (
@@ -74,7 +74,7 @@ export function Navigation() {
         </NavigationMenuItem>
         
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Recursos</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {resources.map((resource) => (
@@ -98,7 +98,7 @@ export function Navigation() {
                 pathname === "/about" && "text-primary"
               )}
             >
-              Sobre Nosotros
+              About KindFi
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

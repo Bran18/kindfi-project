@@ -1,67 +1,169 @@
-import { ArrowUpRight, RefreshCw, Megaphone } from "lucide-react";
+"use client";
+
+import { ArrowUpRight, RefreshCw, Megaphone, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SectionCaption } from "@/components/shared/section-caption";
 import { FeatureCard } from "@/components/shared/feature-card";
+import { motion } from "framer-motion";
 
 export const WhyInvestSection = () => {
   const features = [
     {
       icon: (
-        <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center">
-          <ArrowUpRight className="w-8 h-8 text-green-600" />
+        <div className="w-16 h-16 rounded-full bg-teal-50 flex items-center justify-center relative overflow-hidden group-hover:bg-teal-100 transition-colors duration-300">
+          <motion.div
+            initial={{ rotate: 0 }}
+            animate={{ rotate: 360 }}
+            transition={{
+              duration: 20,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            }}
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(20,184,166,0.1),transparent)]"
+          />
+          <ArrowUpRight className="w-8 h-8 text-teal-600 relative z-10" />
         </div>
       ),
-      title: "Colabora y Recibe Recompensas",
+      title: "Collaborate and Earn Rewards",
       description:
-        "Cada colaboración te acerca a un cambio real y a recompensas únicas, como NFTs de edición limitada, acceso a eventos exclusivos, y más. Colaborar nunca ha sido tan gratificante.",
+        "Every contribution brings us closer to real change and meaningful rewards. Receive exclusive benefits like limited-edition NFTs, access to special events, and more. Collaboration has never been this rewarding.",
+      highlight: "Community Rewards",
     },
     {
       icon: (
-        <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
-          <RefreshCw className="w-8 h-8 text-blue-600" />
+        <div className="w-16 h-16 rounded-full bg-sky-50 flex items-center justify-center relative overflow-hidden group-hover:bg-sky-100 transition-colors duration-300">
+          <motion.div
+            initial={{ rotate: 0 }}
+            animate={{ rotate: -360 }}
+            transition={{
+              duration: 20,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            }}
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(14,165,233,0.1),transparent)]"
+          />
+          <RefreshCw className="w-8 h-8 text-sky-600 relative z-10" />
         </div>
       ),
-      title: "Construye un Mundo Mejor",
+      title: "Build a Better World",
       description:
-        "Apoya una variedad de iniciativas sociales que cubren desde el bienestar animal hasta la preservación cultural. Diversifica tus contribuciones y sé un impulsor del cambio global.",
+        "Support a diverse range of social initiatives, from animal welfare to cultural preservation. Diversify your contributions and become a driving force for global change.",
+      highlight: "+50 Social Initiatives",
     },
     {
       icon: (
-        <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center">
-          <Megaphone className="w-8 h-8 text-purple-600" />
+        <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center relative overflow-hidden group-hover:bg-emerald-100 transition-colors duration-300">
+          <motion.div
+            initial={{ rotate: 0 }}
+            animate={{ rotate: 360 }}
+            transition={{
+              duration: 20,
+              repeat: Number.POSITIVE_INFINITY,
+              ease: "linear",
+            }}
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.1),transparent)]"
+          />
+          <Megaphone className="w-8 h-8 text-emerald-600 relative z-10" />
         </div>
       ),
-      title: "Sé la Revolución",
+      title: "Be the Revolution",
       description:
-        "Levanta la bandera y demuestra que Web3 es mejor que los métodos tradicionales. Impulsando causas por medio de la tecnología descentralizada para un cambio verdadero.",
+        "Raise the flag and prove that Web3 is the future of social impact. By empowering causes through decentralized technology, you can create real, lasting change beyond the limits of traditional systems.",
+      highlight: "Web3 Revolution Advocate",
     },
   ];
 
   return (
-    <section className="py-20 bg-purple-50">
-      <div className="container mx-auto">
-        <SectionCaption
-          title="Únete a la Revolución Kindfi. Web3 Colaborando y Transformando el Mundo"
-          subtitle="La Comunidad Web3 tiene el poder de devolver. Apoya causas que importan, colabora con proyectos sociales, y sé parte de una revolución que utiliza la tecnología Web3 para mejorar el mundo. Juntos, podemos crear un impacto positivo y duradero"
-        />
+    <section className="relative py-24 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-teal-50/50 to-white">
+        <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+      <div className="relative container mx-auto px-4">
+        {/* Section Caption */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <SectionCaption
+            title="Join the KindFi Revolution: Collaborate and Transform the World with Web3"
+            subtitle="The Web3 community has the power to give back. Support causes that matter, collaborate on impactful projects, and be part of a revolution leveraging Web3 technology to improve lives. Together, we can create lasting and meaningful change."
+          />
+        </motion.div>
+
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-16">
           {features.map((feature, index) => (
-            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-            <FeatureCard key={index} {...feature} />
+            <motion.div
+              key={`feature-${
+                // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                index
+              }`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className="group h-full bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300">
+                {/* Icon */}
+                {feature.icon}
+
+                {/* Content */}
+                <h3 className="mt-6 text-xl font-semibold text-gray-900">
+                  {feature.title}
+                </h3>
+                <p className="mt-4 text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
+
+                {/* Highlight */}
+                <div className="mt-6 flex items-center text-sm font-medium text-teal-600">
+                  {feature.highlight}
+                  <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="bg-white rounded-lg p-8 text-center max-w-3xl mx-auto">
-          <p className="text-gray-600 mb-4">
-          En KindFi, eres parte del movimiento que está demostrando que Web3 es el futuro del impacto social. 
-          Desde salvar el planeta hasta empoderar comunidades, cada participación marca la diferencia. 
-          Es tiempo de usar el poder descentralizado para crear un cambio real, lejos de las limitaciones de los sistemas tradicionales.
-          </p>
-          <Button variant="default" className="bg-blue-900">
-            Descubre cómo colaborar en KindFi
-          </Button>
-        </div>
+        {/* Call-to-Action Box */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="relative bg-white rounded-2xl p-8 lg:p-12 shadow-lg max-w-3xl mx-auto overflow-hidden"
+        >
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-50 to-sky-50 opacity-50" />
+
+          <div className="relative">
+            <h4 className="text-xl font-semibold text-gray-900 mb-4">
+            KindFi: One Better World
+            </h4>
+            <p className="text-gray-600 mb-8 leading-relaxed">
+            At KindFi, you’re part of a movement demonstrating that Web3 is reshaping the future of social impact. From saving the planet to empowering communities, every contribution makes a difference. Now is the time to use decentralized power to drive true change. Join us in making a real impact, free from the limitations of traditional systems.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                className="bg-teal-600 hover:bg-teal-700 text-white px-8"
+              >
+                Join the Revolution
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-teal-600 text-teal-600 hover:bg-teal-50"
+              >
+                Discover more about KindFi
+              </Button>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

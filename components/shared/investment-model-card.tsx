@@ -56,7 +56,7 @@ export const InvestmentModelCard = ({
           className="w-full flex items-center justify-center gap-2 hover:bg-white/50"
           onClick={onLearnMore}
         >
-          Aprende Más
+          Learn More
           <ArrowRight className="w-4 h-4" />
         </Button>
       </CardFooter>
