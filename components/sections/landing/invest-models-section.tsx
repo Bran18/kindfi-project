@@ -30,7 +30,7 @@ export const InvestmentModelsSection = () => {
     },
     {
       title: "Powered by Blockchain and Web3",
-      description: "Connect your wallet and participate securely, transparently, and efficiently. Every transaction is recorded on the blockchain for maximum accountability.",
+      description: "Connect your wallet and participate securely, transparently, and efficiently. Every transaction is recorded on the blockchain.",
       variant: "c" as const,
       icon: <Globe className="w-6 h-6 mb-4 text-teal-600" />,
       benefits: [
@@ -47,7 +47,10 @@ export const InvestmentModelsSection = () => {
         <SectionCaption
           title="Secure, Transparent, and Powered by Web3"
           subtitle="At KindFi, we ensure that every donation or contribution is backed by the security and transparency of a Web3-based Escrow system. Smart contracts guarantee that funds reach their intended destination to create real impact."
-        />
+        
+          highlightWords={[
+            "Powered by Web3",
+          ]}/>
 
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {models.map((model, index) => (

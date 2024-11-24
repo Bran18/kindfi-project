@@ -43,9 +43,9 @@ export const CTAForm = ({ onSubmit, className = "" }: CTAFormProps) => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="mx-auto w-12 h-12 rounded-full bg-teal-100 flex items-center justify-center mb-6"
+          className="mx-auto w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mb-6"
         >
-          <Rocket className="w-6 h-6 text-teal-600" />
+          <Rocket className="w-6 h-6 text-purple-600" />
         </motion.div>
 
         {/* Header */}
@@ -74,8 +74,8 @@ export const CTAForm = ({ onSubmit, className = "" }: CTAFormProps) => {
                 }
                 onFocus={() => setIsFocused({ ...isFocused, name: true })}
                 onBlur={() => setIsFocused({ ...isFocused, name: false })}
-                className={`w-full transition-all duration-300 border-gray-200 focus:border-teal-500 ${
-                  isFocused.name ? "ring-2 ring-teal-500/20" : ""
+                className={`w-full transition-all duration-300 border-gray-200 focus:border-blue-500 ${
+                  isFocused.name ? "ring-2 ring-blue-500/20" : ""
                 }`}
               />
               <motion.div
@@ -84,7 +84,7 @@ export const CTAForm = ({ onSubmit, className = "" }: CTAFormProps) => {
                   scaleX: isFocused.name ? 1 : 0,
                   opacity: isFocused.name ? 1 : 0,
                 }}
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-teal-500 origin-left"
+                className="absolute bottom-0 left-0 right-0 h-0.5 origin-left"
               />
             </div>
 
@@ -97,8 +97,8 @@ export const CTAForm = ({ onSubmit, className = "" }: CTAFormProps) => {
                 }
                 onFocus={() => setIsFocused({ ...isFocused, project: true })}
                 onBlur={() => setIsFocused({ ...isFocused, project: false })}
-                className={`w-full transition-all duration-300 border-gray-200 focus:border-teal-500 ${
-                  isFocused.project ? "ring-2 ring-teal-500/20" : ""
+                className={`w-full transition-all duration-300 border-gray-200 focus:border-blue-500 ${
+                  isFocused.project ? "ring-2 ring-purple-500/20" : ""
                 }`}
               />
               <motion.div
@@ -107,14 +107,14 @@ export const CTAForm = ({ onSubmit, className = "" }: CTAFormProps) => {
                   scaleX: isFocused.project ? 1 : 0,
                   opacity: isFocused.project ? 1 : 0,
                 }}
-                className="absolute bottom-0 left-0 right-0 h-0.5 bg-teal-500 origin-left"
+                className="absolute bottom-0 left-0 right-0 h-0.5 origin-left"
               />
             </div>
 
             <Button
               type="submit"
               disabled={isLoading || !formData.name || !formData.project}
-              className={`bg-teal-600 hover:bg-teal-700 text-white px-8 transition-all duration-300 ${
+              className={`gradient-btn text-white px-8 transition-all duration-300 ${
                 isLoading ? "opacity-80" : ""
               }`}
             >

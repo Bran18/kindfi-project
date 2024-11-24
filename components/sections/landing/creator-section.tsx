@@ -18,25 +18,25 @@ import {
 const CreatorSection = () => {
   const features = [
     {
-      icon: <Zap className="w-6 h-6 text-teal-600" />,
+      icon: <Zap className="w-6 h-6 text-blue-700" />,
       title: "Intuitive Web3 Interface",
       description:
         "We simplify blockchain interaction for both creators and contributors, offering a seamless, user-friendly experience with digital wallets and smart contracts.",
     },
     {
-      icon: <Target className="w-6 h-6 text-teal-600" />,
+      icon: <Target className="w-6 h-6 text-purple-700" />,
       title: "Diversified Impact",
       description:
         "Unlock multiple ways to collaborate using Web3 wallets, maximizing social impact and expanding opportunities for meaningful change.",
     },
     {
-      icon: <Shield className="w-6 h-6 text-teal-600" />,
+      icon: <Shield className="w-6 h-6 text-blue-700" />,
       title: "Blockchain Transparency",
       description:
         "Every project is traceable in real-time, showcasing direct impact on the blockchain. This ensures all participants trust that their support reaches its intended destination.",
     },
     {
-      icon: <Settings className="w-6 h-6 text-teal-600" />,
+      icon: <Settings className="w-6 h-6 text-purple-700" />,
       title: "Decentralized Verification with Smart Escrow",
       description:
         "Through a secure escrow system and decentralized validation, we guarantee that every project’s funds are protected and released only when conditions are met.",
@@ -73,7 +73,7 @@ const CreatorSection = () => {
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-teal-50/50 to-white">
+      <div className="absolute inset-0 gradient-bg-blue-purple to-white">
         <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
       </div>
 
@@ -88,7 +88,7 @@ const CreatorSection = () => {
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
           Built by Web3 Developers to
-            <span className="block text-teal-600">
+            <span className="block gradient-text">
             Drive Social Change
             </span>
           </h2>
@@ -147,13 +147,13 @@ const CreatorSection = () => {
               <CardContent className="p-8">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-teal-600 mb-2">
+                    <div className="text-3xl font-bold gradient-text mb-2">
                       100+
                     </div>
                     <div className="text-gray-600">Verified Project</div>
                   </div>
                   <div className="text-center">
-                    <div className="text-3xl font-bold text-teal-600 mb-2">
+                    <div className="text-3xl font-bold gradient-text mb-2">
                       $720M
                     </div>
                     <div className="text-gray-600">Capital Raised</div>

@@ -36,7 +36,7 @@ export const StepCard = ({
             <CardContent className="p-8">
               <div className="relative">
                 {/* Decorative Elements */}
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(20,184,166,0.1),transparent)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(99, 20, 184, 0.1),transparent)]" />
                 <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
 
                 {/* Icon Container */}
@@ -59,7 +59,7 @@ export const StepCard = ({
         >
           {/* Step Number */}
           <div className="flex items-center gap-3 mb-4">
-            <div className="text-sm font-medium text-teal-600">
+            <div className="text-sm font-medium gradient-text">
               Step {stepNumber}
             </div>
           </div>
@@ -69,7 +69,7 @@ export const StepCard = ({
           <p className="text-gray-600 leading-relaxed">{description}</p>
 
           {/* Optional: Interactive Element */}
-          <div className="mt-6 inline-flex items-center text-sm font-medium text-teal-600 group cursor-pointer">
+          <div className="mt-6 inline-flex items-center text-sm font-medium gradient-text group cursor-pointer">
             Learn More
             <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
           </div>

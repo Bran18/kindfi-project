@@ -16,16 +16,16 @@ export default async function ForgotPassword(props: {
   return (
     <AuthLayout>
       <AuthForm
-        title="¿Olvidaste tu contraseña?"
-        subtitle="Ingresa tu correo electrónico y te enviaremos un enlace para restablecerla."
+        title="Forgot Your Password?"
+        subtitle="Enter your email address and we’ll send you a link to reset it."
         footerContent={
           <div>
-            ¿Recordaste tu contraseña?{" "}
+            Remembered your password?{" "}
             <Link
               href="/sign-in"
               className="text-primary font-medium hover:underline"
             >
-              Volver a inicio de sesión
+              Go back to login
             </Link>
           </div>
         }
@@ -37,13 +37,13 @@ export default async function ForgotPassword(props: {
               id="email"
               type="email"
               name="email"
-              placeholder="tu@ejemplo.com"
+              placeholder="you@example.com"
               required
             />
           </div>
 
           <Button className="w-full" formAction={forgotPasswordAction}>
-            Enviar enlace de recuperación
+            Send Recovery Link
           </Button>
 
           {searchParams && <FormMessage message={searchParams} />}
@@ -62,21 +62,20 @@ const SuccessMessage = ({ email }: SuccessMessageProps) => (
   <div className="space-y-4">
     <div className="flex flex-col items-center justify-center space-y-2">
       <CheckCircle className="w-12 h-12 text-green-500" />
-      <h2 className="text-2xl font-semibold">¡Revisa tu correo!</h2>
+      <h2 className="text-2xl font-semibold">Check Your Email!</h2>
     </div>
     <p className="text-center text-muted-foreground">
-      Hemos enviado un enlace de recuperación a <strong>{email}</strong>. El
-      enlace expirará en 24 horas.
+      We’ve sent a recovery link to <strong>{email}</strong>. The link will expire in 24 hours.
     </p>
     <div className="text-center">
       <p className="text-sm text-muted-foreground">
-        ¿No recibiste el correo?{" "}
+        Didn’t receive the email?{" "}
         {/* biome-ignore lint/a11y/useButtonType: <explanation> */}
         <button
           onClick={() => window.location.reload()}
           className="text-primary hover:underline"
         >
-          Intentar nuevamente
+          Try again
         </button>
       </p>
     </div>

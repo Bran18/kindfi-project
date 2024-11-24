@@ -99,7 +99,7 @@ const ProjectJourney = () => {
   const steps = activeView === "project" ? projectSteps : investorSteps;
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-teal-50/50 to-white px-4 py-14">
+    <section className="gradient-bg-blue-purple relative overflow-hidden px-4 py-14">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
 
@@ -113,7 +113,7 @@ const ProjectJourney = () => {
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Transform Realities Using the{" "}
-              <span className="text-teal-600">Power of the Web3</span>
+              <span className="gradient-text">Power of the Web3</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
             From creation to launch, follow a transparent and secure process powered by Smart Blockchain Escrows. Every step is verified to ensure the success of your social campaign.
@@ -132,8 +132,8 @@ const ProjectJourney = () => {
                 variant={activeView === "project" ? "default" : "ghost"}
                 className={`rounded-full px-6 py-2 text-sm font-medium transition-all duration-200 ${
                   activeView === "project"
-                    ? "bg-teal-600 text-white"
-                    : "text-gray-600 hover:text-teal-600"
+                    ? "gradient-btn text-white"
+                    : "text-gray-600 hover:text-blue-600"
                 }`}
                 onClick={() => setActiveView("project")}
               >
@@ -143,8 +143,8 @@ const ProjectJourney = () => {
                 variant={activeView === "investor" ? "default" : "ghost"}
                 className={`rounded-full px-6 py-2 text-sm font-medium transition-all duration-200 ${
                   activeView === "investor"
-                    ? "bg-teal-600 text-white"
-                    : "text-gray-600 hover:text-teal-600"
+                    ? "gradient-btn text-white"
+                    : "text-gray-600 hover:text-purple-600"
                 }`}
                 onClick={() => setActiveView("investor")}
               >
@@ -176,7 +176,7 @@ const ProjectJourney = () => {
               >
                 <div className="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full border border-gray-100">
                   <div className="flex items-center mb-4">
-                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-teal-50 text-teal-600 font-semibold text-sm">
+                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-purple-600 font-semibold text-sm">
                       {step.number}
                     </div>
                     <div className="ml-3 font-semibold text-gray-900">
@@ -201,7 +201,7 @@ const ProjectJourney = () => {
         >
           <Button
             size="lg"
-            className="bg-teal-600 hover:bg-teal-700 text-white px-8"
+            className="bg-blue-700 hover:bg-blue-800 text-white px-8"
           >
             {activeView === "project"
               ? "Register Your Project"

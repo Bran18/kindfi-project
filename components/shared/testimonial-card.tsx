@@ -12,7 +12,7 @@ interface TestimonialProps {
           "{quote}"
         </blockquote>
         <div>
-          <div className="font-semibold">{author}</div>
+          <div className="font-semibold text-blue-700">{author}</div>
           <div className="text-gray-600">{role}</div>
         </div>
       </div>

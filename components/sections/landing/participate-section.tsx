@@ -52,7 +52,7 @@ export const WhyInvestSection = () => {
     },
     {
       icon: (
-        <div className="w-16 h-16 rounded-full bg-emerald-50 flex items-center justify-center relative overflow-hidden group-hover:bg-emerald-100 transition-colors duration-300">
+        <div className="w-16 h-16 rounded-full bg-purple-50 flex items-center justify-center relative overflow-hidden group-hover:bg-purple-100 transition-colors duration-300">
           <motion.div
             initial={{ rotate: 0 }}
             animate={{ rotate: 360 }}
@@ -61,9 +61,9 @@ export const WhyInvestSection = () => {
               repeat: Number.POSITIVE_INFINITY,
               ease: "linear",
             }}
-            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.1),transparent)]"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(89, 16, 185, 0.1),transparent)]"
           />
-          <Megaphone className="w-8 h-8 text-emerald-600 relative z-10" />
+          <Megaphone className="w-8 h-8 text-purple-600 relative z-10" />
         </div>
       ),
       title: "Be the Revolution",
@@ -76,7 +76,7 @@ export const WhyInvestSection = () => {
   return (
     <section className="relative py-24 overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-teal-50/50 to-white">
+      <div className="absolute inset-0">
         <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
       </div>
 
@@ -91,6 +91,10 @@ export const WhyInvestSection = () => {
           <SectionCaption
             title="Join the KindFi Revolution: Collaborate and Transform the World with Web3"
             subtitle="The Web3 community has the power to give back. Support causes that matter, collaborate on impactful projects, and be part of a revolution leveraging Web3 technology to improve lives. Together, we can create lasting and meaningful change."
+            highlightWords={[
+              "Transform the World with Web3",
+              "KindFi",
+            ]}
           />
         </motion.div>
 
@@ -120,7 +124,7 @@ export const WhyInvestSection = () => {
                 </p>
 
                 {/* Highlight */}
-                <div className="mt-6 flex items-center text-sm font-medium text-teal-600">
+                <div className="mt-6 flex items-center text-sm font-medium text-blue-600">
                   {feature.highlight}
                   <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
                 </div>
@@ -138,10 +142,10 @@ export const WhyInvestSection = () => {
           className="relative bg-white rounded-2xl p-8 lg:p-12 shadow-lg max-w-3xl mx-auto overflow-hidden"
         >
           {/* Background Pattern */}
-          <div className="absolute inset-0 bg-gradient-to-r from-teal-50 to-sky-50 opacity-50" />
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-sky-50 opacity-50" />
 
           <div className="relative">
-            <h4 className="text-xl font-semibold text-gray-900 mb-4">
+            <h4 className="text-xl font-semibold text-center text-gray-900 mb-4">
             KindFi: One Better World
             </h4>
             <p className="text-gray-600 mb-8 leading-relaxed">
@@ -150,14 +154,14 @@ export const WhyInvestSection = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 size="lg"
-                className="bg-teal-600 hover:bg-teal-700 text-white px-8"
+                className="gradient-btn text-white px-8"
               >
                 Join the Revolution
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-teal-600 text-teal-600 hover:bg-teal-50"
+                className="gradient-border-btn hover:bg-teal-50"
               >
                 Discover more about KindFi
               </Button>

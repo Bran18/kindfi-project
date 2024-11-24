@@ -33,7 +33,7 @@ export const CTAButtons = ({
       <Button 
         size="lg"
         onClick={onPrimaryClick}
-        className={`bg-teal-600 hover:bg-teal-700 text-white px-8 shadow-sm transition-all duration-300 ${primaryClassName}`}
+        className={`gradient-btn text-white px-8 shadow-sm transition-all duration-300 ${primaryClassName}`}
       >
         {primaryText}
       </Button>
@@ -41,7 +41,7 @@ export const CTAButtons = ({
         size="lg"
         variant="outline"
         onClick={onSecondaryClick}
-        className={`border-teal-600 text-teal-600 hover:bg-teal-50 px-8 transition-all duration-300 ${secondaryClassName}`}
+        className={`gradient-border-btn transition-all duration-300 ${secondaryClassName}`}
       >
         {secondaryText}
       </Button>

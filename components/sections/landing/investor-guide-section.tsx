@@ -43,7 +43,7 @@ const NewInvestorGuide = ({ className = "" }: NewInvestorGuideProps) => {
   return (
     <section className={`relative py-24 overflow-hidden ${className}`}>
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-teal-50/50 to-white">
+      <div className="absolute inset-0 gradient-bg-blue-purple">
         <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
       </div>
 
@@ -57,8 +57,8 @@ const NewInvestorGuide = ({ className = "" }: NewInvestorGuideProps) => {
           className="text-center mb-20"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            <span className="block">New to KindFi?</span>
-            <span className="block text-teal-600">
+            <span className="block">New in KindFi?</span>
+            <span className="block gradient-text">
             Support Verified Projects Today!
             </span>
           </h2>

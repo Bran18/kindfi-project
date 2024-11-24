@@ -46,10 +46,10 @@ const CommunitySection = () => {
           className="text-center mb-20 max-w-3xl mx-auto"
         >
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            <span className="block">More Than Just DeFi,</span>
-            <span className="block text-teal-600">Join a Web3 Community of Impact</span>
+            <span className="block">More Than Just DeFi</span>
+            <span className="block gradient-text">Join a Web3 Community of Impact</span>
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed text-justify">
+          <p className="text-lg font-medium text-gray-600 leading-relaxed text-justify">
           KindFi is about building a thriving community that drives real change. 
           Each project fosters a network of passionate ambassadors, contributors, and changemakers working together to ensure success. 
           Through Web3 blockchain technology, you become part of an unstoppable ecosystem dedicated to creating measurable social impact. 

@@ -20,7 +20,7 @@ export default async function ResetPassword(props: {
       >
         <form className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="password">Nueva contraseña</Label>
+            <Label htmlFor="password">New Password</Label>
             <Input
               id="password"
               type="password"
@@ -31,7 +31,7 @@ export default async function ResetPassword(props: {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="confirmPassword">Confirmar contraseña</Label>
+            <Label htmlFor="confirmPassword">Repeat password</Label>
             <Input
               id="confirmPassword"
               type="password"
@@ -42,7 +42,7 @@ export default async function ResetPassword(props: {
           </div>
 
           <Button className="w-full" formAction={resetPasswordAction}>
-            Actualizar contraseña
+            Update Password
           </Button>
 
           {searchParams && <FormMessage message={searchParams} />}
@@ -53,7 +53,7 @@ export default async function ResetPassword(props: {
             href="/sign-in"
             className="text-sm text-primary hover:underline"
           >
-            Volver a inicio de sesión
+            Back to home
           </Link>
         </div>
       </AuthForm>

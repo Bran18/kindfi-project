@@ -15,39 +15,42 @@ import {
   Leaf,
   LineChart,
   GraduationCap,
-  HandHelping
+  HandHelping,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
- 
   const categories = [
     {
       icon: <Rocket className="w-4 h-4" />,
       label: "Empowering Communities",
       // Modern & innovative - soft teal
-      color: "bg-teal-50/80 text-teal-700 hover:bg-teal-100/80 border-teal-200/50",
+      color:
+        "bg-teal-50/80 text-teal-700 hover:bg-teal-100/80 border-teal-200/50",
     },
     {
       icon: <Leaf className="w-4 h-4" />,
       label: "Environmental Projects",
       // Environmental - soft sage green
-      color: "bg-green-50/80 text-green-700 hover:bg-green-100/80 border-green-200/50",
+      color:
+        "bg-green-50/80 text-green-700 hover:bg-green-100/80 border-green-200/50",
     },
     {
       icon: <Heart className="w-4 h-4" />,
       label: "Animal Shelters",
       // Care & compassion - soft rose
-      color: "bg-rose-50/80 text-rose-700 hover:bg-rose-100/80 border-rose-200/50",
+      color:
+        "bg-rose-50/80 text-rose-700 hover:bg-rose-100/80 border-rose-200/50",
     },
     {
       icon: <NewspaperIcon className="w-4 h-4" />,
       label: "Community News Initiatives",
       // Information & trust - soft slate
-      color: "bg-slate-50/80 text-slate-700 hover:bg-slate-100/80 border-slate-200/50",
+      color:
+        "bg-slate-50/80 text-slate-700 hover:bg-slate-100/80 border-slate-200/50",
     },
   ];
-  
+
   const secondaryCategories = [
     {
       icon: <Stethoscope className="w-4 h-4" />,
@@ -83,7 +86,8 @@ const Hero = () => {
       icon: <GraduationCap className="w-4 h-4" />,
       label: "Education for All",
       // Education - soft indigo
-      color: "bg-indigo-50/80 text-indigo-700 hover:bg-indigo-100/80 border-indigo-200/50",
+      color:
+        "bg-indigo-50/80 text-indigo-700 hover:bg-indigo-100/80 border-indigo-200/50",
     },
     {
       icon: <HandHelping className="w-4 h-4" />,
@@ -130,12 +134,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative z-0 min-h-[80vh] bg-gradient-to-b from-teal-50/50 to-white px-4 py-20">
+    <section className="relative z-0 min-h-[80vh] bg-gradient-to-b from-purple-50/50 to-white px-4 py-20">
       <div className="container mx-auto max-w-6xl">
         {/* Main Content */}
         <div className="text-center">
           <motion.h2
-            className="text-2xl font-medium text-gray-800 mb-4"
+            className="text-2xl font-bold text-gray-800 mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -144,7 +148,7 @@ const Hero = () => {
           </motion.h2>
 
           <motion.h1
-            className="text-4xl md:text-5xl font-bold text-teal-800 mb-6"
+            className="text-4xl md:text-5xl font-bold gradient-text mb-8 py-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -153,14 +157,15 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            className="text-lg text-gray-600 mb-8"
+            className="text-lg text-gray-700 pt-2 my-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            Every contribution fuels real-world impact. You can support social causes through crypto donations and unlock exclusive NFTs.
-            KindFi is driving the adoption of Web3 technology for a more connected and empowered world where everyone can make a difference.
-
+            Every contribution fuels real-world impact. You can support social
+            causes through crypto donations to escrows and unlock exclusive NFTs. KindFi is
+            driving the adoption of Web3 technology for a more connected and
+            empowered world where everyone can make a difference.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -170,14 +175,10 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
           >
-            <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
-            Support with Crypto
+            <Button size="lg" className="gradient-btn text-white">
+              Support with Crypto
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-teal-600 text-teal-600 hover:bg-teal-50"
-            >
+            <Button size="lg" variant="outline" className="gradient-border-btn">
               Explore Causes
             </Button>
           </motion.div>

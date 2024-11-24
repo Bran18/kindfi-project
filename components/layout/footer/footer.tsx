@@ -1,5 +1,5 @@
 // components/layout/footer.tsx
-'use client'
+"use client";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,7 +20,7 @@ const Footer = () => {
     {
       title: "Resources",
       links: [
-        { label: "Investor Guide", href: "/guide" },
+        { label: "Trustless Work", target:"_blank", href: "https://www.trustlesswork.com/" },
         { label: "Documentation", href: "/docs" },
         { label: "Tutorials", href: "/tutorials" },
         { label: "FAQs", href: "/faqs" },
@@ -66,18 +66,23 @@ const Footer = () => {
               <span className="text-xl font-bold text-black">KindFi</span>
             </Link>
             <p className="text-sm text-gray-600">
-            The first Web3 platform connecting supporters to impactful causes while driving blockchain adoption for social and environmental change.
+              The first Web3 platform connecting supporters to impactful causes
+              while driving blockchain adoption for social and environmental
+              change.
             </p>
             {/* Newsletter Subscription */}
             <div className="mt-4">
               <h3 className="mb-2 text-sm font-semibold">Keep in touch</h3>
               <div className="flex gap-2">
-                <Input 
-                  type="email" 
-                  placeholder="tu@email.com" 
+                <Input
+                  type="email"
+                  placeholder="tu@email.com"
                   className="max-w-[200px]"
                 />
-                <Button size="sm" className="bg-teal-600 hover:bg-teal-900 text-white">
+                <Button
+                  size="sm"
+                  className="bg-blue-600 hover:bg-blue-900 text-white"
+                >
                   Keep in touch
                 </Button>
               </div>
@@ -87,13 +92,15 @@ const Footer = () => {
           {/* Links Columns */}
           {mainLinks.map((column) => (
             <div key={column.title}>
-              <h3 className="mb-3 text-sm font-semibold text-black">{column.title}</h3>
+              <h3 className="mb-3 text-sm font-semibold text-black">
+                {column.title}
+              </h3>
               <ul className="space-y-2">
                 {column.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 hover:text-emerald-700 transition-colors"
+                      className="text-sm text-gray-600 hover:text-blue-700 transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -114,7 +121,7 @@ const Footer = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-green-700 transition-colors"
+                  className="text-gray-600 hover:text-blue-700 transition-colors"
                   aria-label={link.label}
                 >
                   {link.icon}
