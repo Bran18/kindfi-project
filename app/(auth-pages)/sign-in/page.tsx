@@ -13,15 +13,15 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
   return (
     <AuthLayout>
       <AuthForm
-        title="Bienvenido de vuelta"
+        title="Welcome Back"
         subtitle={
           <div className="text-sm text-muted-foreground">
-            ¿No tienes una cuenta?{" "}
+            Don’t have an account?{" "}
             <Link
               className="text-primary font-medium hover:underline"
               href="/sign-up"
             >
-              Regístrate
+              Sign Up
             </Link>
           </div>
         }
@@ -33,32 +33,32 @@ export default async function Login(props: { searchParams: Promise<Message> }) {
               id="email"
               name="email"
               type="email"
-              placeholder="tu@ejemplo.com"
+              placeholder="you@example.com"
               required
             />
           </div>
 
           <div className="space-y-2">
             <div className="flex justify-between items-center">
-              <Label htmlFor="password">Contraseña</Label>
+              <Label htmlFor="password">Password</Label>
               <Link
                 className="text-sm text-primary hover:underline"
                 href="/forgot-password"
               >
-                ¿Olvidaste tu contraseña?
+                Forgot your password?
               </Link>
             </div>
             <Input
               id="password"
               type="password"
               name="password"
-              placeholder="Tu contraseña"
+              placeholder="Your password"
               required
             />
           </div>
 
           <Button className="w-full" formAction={signInAction}>
-            Iniciar sesión
+            Log In
           </Button>
         </form>
       </AuthForm>

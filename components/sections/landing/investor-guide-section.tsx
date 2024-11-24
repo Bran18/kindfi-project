@@ -1,60 +1,82 @@
-import React from 'react';
-import { StepCard } from '@/components/shared/steps-card';
-import { ExploreProject, ExploreDetails, Contibute } from '@/components/icons/illustrations';
+'use client'
 
+import React from "react";
+import { StepCard } from "@/components/shared/steps-card";
+import {
+  ExploreProject,
+  ExploreDetails,
+  Contibute,
+} from "@/components/icons/illustrations";
+import { motion } from "framer-motion";
 interface NewInvestorGuideProps {
   className?: string;
 }
 
-const NewInvestorGuide = ({ className = '' }: NewInvestorGuideProps) => {
+const NewInvestorGuide = ({ className = "" }: NewInvestorGuideProps) => {
   const steps = [
     {
       stepNumber: 1,
-      title: "Explora los proyectos activos",
-      description: "Aprovecha la gran variedad de proyectos por categoría y revisa aquellos que cuentan con campañas activas. Cada proyecto es único y te brinda toda la información necesaria para participar.",
+      title: "Explore Available Projects",
+      description:
+        "Browse through a wide range of impactful projects across various categories. Each project provides detailed information to help you make well-informed decisions.",
       Icon: ExploreProject,
-      imageAlt: "Explore active projects illustration"
+      imageAlt: "Illustration of exploring projects",
     },
     {
       stepNumber: 2,
-      title: "Explora los detalles del proyecto",
-      description: "Examina los detalles del proyecto que te interese. Accede a datos clave, como el número de colaboradores, el objetivo del proyecto, y su progreso. Toda la información está disponible para que tomes una decisión informada.",
+      title: "Discover Project Details",
+      description:
+        "Dive into all the key details about each project, including financial goals, progress, and insights about the team behind the idea.",
       Icon: ExploreDetails,
-      imageAlt: "Review project details illustration"
+      imageAlt: "Illustration of reviewing project details",
     },
     {
       stepNumber: 3,
-      title: "Colabora en lo que te apasione",
-      description: "Sigue tu intuición y conocimiento para elegir los proyectos que más te inspiren. Establece una cantidad para colaborar o donar de acuerdo a tus preferencias y presupuesto disponible",
+      title: "Support What Inspires You",
+      description:
+        "Choose the projects that resonate with you the most and decide how much you want to contribute or invest. Support initiatives that align with your values and vision.",
       Icon: Contibute,
-      imageAlt: "Invest or donate illustration"
-    }
+      imageAlt: "Illustration of investing or contributing",
+    },
   ];
 
   return (
-    <section className={`py-20 ${className}`}>
-      {/* Header */}
-      <div className="text-center mb-16">
-        <h2 className="text-3xl font-bold mb-4">¿Nuevo en KindFi? ¡Empieza a Colaborar en Proyectos Verificados!</h2>
-        <p className="text-gray-600">
-          En 3 simples pasos podrás comenzar a colaborar y apoyar proyectos sociales de manera segura y transparente
-        </p>
+    <section className={`relative py-24 overflow-hidden ${className}`}>
+      {/* Background */}
+      <div className="absolute inset-0 gradient-bg-blue-purple">
+        <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
       </div>
 
-      {/* Steps */}
-      <div className="max-w-5xl mx-auto px-4">
-        {steps.map((step, index) => (
-          <StepCard
-            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-            key={index}
-            stepNumber={step.stepNumber}
-            title={step.title}
-            description={step.description}
-            Icon={step.Icon}
-            imageAlt={step.imageAlt}
-            isReversed={index % 2 !== 0}
-          />
-        ))}
+      <div className="relative container mx-auto px-4">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <span className="block">New in KindFi?</span>
+            <span className="block gradient-text">
+            Support Verified Projects Today!
+            </span>
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          In just 3 simple steps, you can begin contributing to social initiatives securely and transparently.
+          </p>
+        </motion.div>
+
+        {/* Steps */}
+        <div className="max-w-4xl mx-auto space-y-20">
+          {steps.map((step, index) => (
+            <StepCard
+              key={`step-${step.stepNumber}`}
+              {...step}
+              isReversed={index % 2 !== 0}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -22,10 +22,10 @@ interface AuthLayoutProps {
             <div className="absolute inset-0 bg-blue-900/40 backdrop-blur-sm">
               <div className="flex flex-col justify-center items-center h-full text-white p-8">
                 <h2 className="text-3xl font-bold mb-4">
-                  Impacta con Web3
+                Make an Impact with Web3
                 </h2>
                 <p className="text-lg text-center max-w-md">
-                  Únete a la primera plataforma de impulsamiento social usando blockchain en Latinoamérica
+                Join the first blockchain-powered social impact platform in Latin America
                 </p>
               </div>
             </div>
@@ -34,4 +34,3 @@ interface AuthLayoutProps {
       </div>
     );
   };
-  

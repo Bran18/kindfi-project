@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import { Mail, Lock, UserPlus } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import {AuthLayout} from '@/components/layout/auth/auth-layout';
 
   export default async function Signup(props: {
     searchParams: Promise<Message>;
@@ -24,7 +25,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
   // }
 
   return (
-    <div className="flex min-h-screen items-center justify-center p-4 bg-gradient-to-b from-background/50 to-muted/50">
+      <AuthLayout>
       <Card className="w-full max-w-md">
         <CardHeader className="space-y-2 text-center">
           <div className="flex justify-center mb-4">
@@ -96,6 +97,6 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
           </div>
         </CardFooter>
       </Card>
-    </div>
+      </AuthLayout>
   );
 }

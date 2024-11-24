@@ -1,31 +1,45 @@
-'use client'
+"use client";
 
+import { motion } from "framer-motion";
 import { FeatureItem } from "@/components/shared/feature-item";
 import { SocialButton } from "@/components/shared/social-cta";
 import { Card, CardContent } from "@/components/ui/card";
-import { Apple, Facebook, Globe, Mail } from "lucide-react";
+import {
+  Apple,
+  Facebook,
+  Globe,
+  Mail,
+  Shield,
+  Target,
+  Zap,
+  Settings,
+} from "lucide-react";
 
 const CreatorSection = () => {
   const features = [
     {
-      title: "Interfaz Web3 Intuitiva",
+      icon: <Zap className="w-6 h-6 text-blue-700" />,
+      title: "Intuitive Web3 Interface",
       description:
-        "Simplificamos la interacción con blockchain tanto para creadores como para impulsadores, brindando una experiencia fluida y accesible con wallets digitales y contratos inteligentes.",
+        "We simplify blockchain interaction for both creators and contributors, offering a seamless, user-friendly experience with digital wallets and smart contracts.",
     },
     {
-      title: "Diversificación de Impacto",
+      icon: <Target className="w-6 h-6 text-purple-700" />,
+      title: "Diversified Impact",
       description:
-        "Ofrecemos múltiples formas de colaboración a través de diferentes Web3 Wallets maximizando el impacto social y expandiendo las oportunidades de cambio.",
+        "Unlock multiple ways to collaborate using Web3 wallets, maximizing social impact and expanding opportunities for meaningful change.",
     },
     {
-      title: "Transparencia Blockchain",
+      icon: <Shield className="w-6 h-6 text-blue-700" />,
+      title: "Blockchain Transparency",
       description:
-        "Cada proyecto es trazable en tiempo real, mostrando resultados de impacto directo en la blockchain, para que todos los involucrados confíen en que su apoyo llega al lugar correcto.",
+        "Every project is traceable in real-time, showcasing direct impact on the blockchain. This ensures all participants trust that their support reaches its intended destination.",
     },
     {
-      title: "Verificación Descentralizada con Fideicomiso Seguro",
+      icon: <Settings className="w-6 h-6 text-purple-700" />,
+      title: "Decentralized Verification with Smart Escrow",
       description:
-        "A través de un fideicomiso seguro y validación descentralizada, aseguramos que los fondos de cada proyecto estén protegidos en todo momento.",
+        "Through a secure escrow system and decentralized validation, we guarantee that every project’s funds are protected and released only when conditions are met.",
     },
   ];
 
@@ -34,74 +48,144 @@ const CreatorSection = () => {
       icon: <Mail className="w-5 h-5" />,
       provider: "Correo",
       onClick: () => console.log("Email login"),
+      className: "bg-teal-600 hover:bg-teal-700 text-white",
     },
     {
       icon: <Globe className="w-5 h-5" />,
       provider: "Google",
       onClick: () => console.log("Google login"),
+      className: "bg-teal-600 hover:bg-teal-700 text-white",
     },
     {
       icon: <Facebook className="w-5 h-5" />,
       provider: "Facebook",
       onClick: () => console.log("Facebook login"),
+      className: "bg-teal-600 hover:bg-teal-700 text-white",
     },
     {
       icon: <Apple className="w-5 h-5" />,
       provider: "Apple",
       onClick: () => console.log("Apple login"),
+      className: "bg-teal-600 hover:bg-teal-700 text-white",
     },
   ];
 
   return (
-    <section className="py-20 bg-purple-50">
-      <div className="container mx-auto px-4">
+    <section className="relative py-24 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 gradient-bg-blue-purple to-white">
+        <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
+      </div>
+
+      <div className="relative container mx-auto px-4">
         {/* Header */}
-        <h2 className="text-3xl font-bold text-center mb-2">
-        Creado por Developers en Web3, para Impulsar el Cambio Social
-        </h2>
-        <p className="text-center text-gray-600 mb-16 max-w-3xl mx-auto">
-        Somos la primera plataforma blockchain enfocada en unir a causas sociales y colaboradores del mundo cripto, 
-        diseñada para maximizar el impacto social en toda Latinoamérica y más allá. Con KindFi, 
-        estás construyendo el futuro de la colaboración social.
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16 max-w-3xl mx-auto"
+        >
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          Built by Web3 Developers to
+            <span className="block gradient-text">
+            Drive Social Change
+            </span>
+          </h2>
+          <p className="text-lg text-gray-600 leading-relaxed">
+          We are the first blockchain platform dedicated to uniting social causes and collaborators from the crypto world. 
+          Designed to maximize social impact across Latin America and beyond, KindFi is building the future of social collaboration. 
+          With KindFi, you’re part of a movement to create real and measurable change.
+          </p>
+        </motion.div>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Features List */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
             {features.map((feature, index) => (
-              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-              <FeatureItem key={index} {...feature} />
+              <motion.div
+                key={`feature-${index}`}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <div className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-2 rounded-xl bg-teal-50">
+                      {feature.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900">
+                      {feature.title}
+                    </h3>
+                  </div>
+                  <p className="text-gray-600 leading-relaxed pl-14">
+                    {feature.description}
+                  </p>
+                </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          {/* Image and CTA */}
-          <div className="space-y-8">
-            {/* Placeholder for founder image */}
-            <div className="bg-white rounded-lg p-6 shadow-sm max-w-md mx-auto">
-              {/* <img
-                src="/api/placeholder/400/300"
-                alt="Platform founder"
-                className="w-full h-auto rounded"
-              /> */}
-            </div>
-
-            {/* CTA Section */}
-            <Card className="max-w-md mx-auto">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4 text-center">
-                  ¿Listo para impulsar proyectos?
-                </h3>
-                <p className="text-sm text-gray-600 mb-6 text-center">
-                Demuestra el poder de Web3. Sé la Revolución de impulsores de cambio social.
-                </p>
-                {socialButtons.map((button, index) => (
-                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-                  <SocialButton key={index} {...button} />
-                ))}
+          {/* CTA Cards */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            {/* Stats Card */}
+            <Card className="bg-white shadow-sm border-gray-100">
+              <CardContent className="p-8">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold gradient-text mb-2">
+                      100+
+                    </div>
+                    <div className="text-gray-600">Verified Project</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold gradient-text mb-2">
+                      $720M
+                    </div>
+                    <div className="text-gray-600">Capital Raised</div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
-          </div>
+
+            {/* CTA Card */}
+            <Card className="bg-white border-gray-100 shadow-sm">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                Ready to Empower Projects?
+                </h3>
+                <p className="text-gray-600 mb-8">
+                Join the revolution of Web3 impact creators. Be the change-maker that drives social transformation.
+                </p>
+                <div className="space-y-3">
+                  {socialButtons.map((button, index) => (
+                    <SocialButton
+                      key={`social-${
+                        // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+                        index
+                      }`}
+                      {...button}
+                      className={`w-full ${button.className}`}
+                    />
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </div>
     </section>

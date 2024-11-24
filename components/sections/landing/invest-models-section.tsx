@@ -1,42 +1,42 @@
-'use client'
+'use client';
 
 import { InvestmentModelCard } from "@/components/shared/investment-model-card";
 import { SectionCaption } from "@/components/shared/section-caption";
-import { Shield, Users, Wallet } from 'lucide-react';
+import { Shield, Users, Globe } from 'lucide-react';
 
 export const InvestmentModelsSection = () => {
   const models = [
     {
-      title: "Fideicomiso Seguro",
-      description: "Los fondos se mantienen en un fideicomiso verificado hasta alcanzar la meta del proyecto, garantizando la seguridad de tu colaboración",
+      title: "Secure Escrow",
+      description: "Funds are held in a verified escrow account by Trustless work until the project’s goal is met, ensuring the safety and reliability of your contributions.",
       variant: "a" as const,
       icon: <Shield className="w-6 h-6 mb-4 text-emerald-600" />,
       benefits: [
-        "Smart contracts auditados",
-        "Custodia segura de fondos",
-        "Transparencia blockchain"
+        "Smart Contracts",
+        "Secure Fund Custody",
+        "Blockchain Transparency"
       ]
     },
     {
-      title: "Impacto Social",
-      description: "Una vez que el proyecto alcanza su meta, los fondos se liberan directamente a la causa social, todo respaldado por contratos inteligentes",
+      title: "Social ImpactReal",
+      description: "Once a project achieves its goal, funds are directly released to the social cause, fully backed by smart contracts to ensure transparency and trust.",
       variant: "b" as const,
       icon: <Users className="w-6 h-6 mb-4 text-blue-600" />,
       benefits: [
-        "Reportes de impacto",
-        "Seguimiento en tiempo real",
-        "Comunidad comprometida"
+        "Impact Reports",
+        "Real-Time Tracking",
+        "Engaged Communities"
       ]
     },
     {
-      title: "Impulsado por Web3",
-      description: "Conecta tu wallet y participa de forma segura, transparente y eficiente. Cada transacción está registrada en blockchain",
+      title: "Powered by Blockchain and Web3",
+      description: "Connect your wallet and participate securely, transparently, and efficiently. Every transaction is recorded on the blockchain.",
       variant: "c" as const,
-      icon: <Wallet className="w-6 h-6 mb-4 text-purple-600" />,
+      icon: <Globe className="w-6 h-6 mb-4 text-teal-600" />,
       benefits: [
-        "Transacciones instantáneas",
-        "Registro inmutable",
-        "Certificados NFT"
+        "Instant Transactions",
+        "Immutable Records",
+        "NFT Certificates and Tokens"
       ]
     }
   ];
@@ -45,10 +45,12 @@ export const InvestmentModelsSection = () => {
     <section className="w-full px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionCaption
-          title="Seguro, Transparente y Potenciado en Web3"
-          subtitle="En KindFi, garantizamos que cada donación o colaboración esté respaldada por la seguridad y transparencia del Fideicomiso en sistema Web3, 
-          con contratos inteligentes que aseguran que los fondos lleguen a su destino para generar impacto real"
-        />
+          title="Secure, Transparent, and Powered by Web3"
+          subtitle="At KindFi, we ensure that every donation or contribution is backed by the security and transparency of a Web3-based Escrow system. Smart contracts guarantee that funds reach their intended destination to create real impact."
+        
+          highlightWords={[
+            "Powered by Web3",
+          ]}/>
 
         <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {models.map((model, index) => (

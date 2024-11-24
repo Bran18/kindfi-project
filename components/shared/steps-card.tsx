@@ -1,4 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { ChevronRight } from "lucide-react";
 
 interface StepCardProps {
   stepNumber: number;
@@ -18,24 +20,61 @@ export const StepCard = ({
   isReversed = false,
 }: StepCardProps) => {
   return (
-    <div
-      className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} gap-8 items-center mb-12`}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className={`flex flex-col ${
+        isReversed ? "md:flex-row-reverse" : "md:flex-row"
+      } gap-8 items-center`}
     >
       {/* Image Card */}
       <div className="w-full md:w-1/2">
-        <Card className="bg-blue-50 border-none">
-          <CardContent className="p-8 flex justify-center items-center">
-            <Icon /> {/* Just render the Icon component directly */}
-          </CardContent>
-        </Card>
+        <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}>
+          <Card className="bg-gradient-to-br from-teal-50 to-white border-none overflow-hidden">
+            <CardContent className="p-8">
+              <div className="relative">
+                {/* Decorative Elements */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(99, 20, 184, 0.1),transparent)]" />
+                <div className="absolute inset-0 bg-grid-slate-100/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))]" />
+
+                {/* Icon Container */}
+                <div className="relative z-10 flex justify-center items-center">
+                  <Icon />
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
 
       {/* Content */}
       <div className="w-full md:w-1/2">
-        <div className="text-sm text-gray-500 mb-2">Paso {stepNumber}</div>
-        <h3 className="text-xl font-semibold mb-3">{title}</h3>
-        <p className="text-gray-600">{description}</p>
+        <motion.div
+          initial={{ opacity: 0, x: isReversed ? -20 : 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {/* Step Number */}
+          <div className="flex items-center gap-3 mb-4">
+            <div className="text-sm font-medium gradient-text">
+              Step {stepNumber}
+            </div>
+          </div>
+
+          {/* Content */}
+          <h3 className="text-2xl font-semibold text-gray-900 mb-4">{title}</h3>
+          <p className="text-gray-600 leading-relaxed">{description}</p>
+
+          {/* Optional: Interactive Element */}
+          <div className="mt-6 inline-flex items-center text-sm font-medium gradient-text group cursor-pointer">
+            Learn More
+            <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-200" />
+          </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 };
