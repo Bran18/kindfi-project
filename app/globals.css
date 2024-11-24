@@ -168,12 +168,12 @@
 
 
 .gradient-progress {
-  @apply bg-gradient-to-l from-purple-600 to-blue-800;
+  @apply bg-gradient-to-l from-purple-400 to-blue-400;
   @apply transition duration-300;
 }
 
 .gradient-progress:hover {
-  @apply from-blue-800 to-purple-600;
+  @apply from-purple-500 to-blue-500;
 }
 
 /* Component Styles */
