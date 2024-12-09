@@ -3,7 +3,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Send, Twitter, X } from "lucide-react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import { Facebook, LinkedinIcon, Send, Twitter, X } from "lucide-react";
 import Link from "next/link";
 
 const Footer = () => {
@@ -20,8 +21,8 @@ const Footer = () => {
     {
       title: "Resources",
       links: [
-        { label: "Trustless Work", target:"_blank", href: "https://www.trustlesswork.com/" },
-        { label: "Documentation", href: "/docs" },
+        { label: "Trustless Work", href: "https://www.trustlesswork.com/", target: "_blank"},
+        { label: "Documentation", href: "https://kindfi.gitbook.io/kindfi", target: "_blank" },
         { label: "Tutorials", href: "/tutorials" },
         { label: "FAQs", href: "/faqs" },
       ],
@@ -40,18 +41,18 @@ const Footer = () => {
   const socialLinks = [
     {
       icon: <Twitter className="h-5 w-5" />,
-      href: "https://twitter.com/kind-fi",
+      href: "https://x.com/KindFi_W3",
       label: "Twitter",
     },
     {
-      icon: <Facebook className="h-5 w-5" />,
-      href: "https://facebook.com/kind-fi",
-      label: "Facebook",
+      icon: <LinkedinIcon className="h-5 w-5" />,
+      href: "https://linkedin.com/company/kindfi",
+      label: "LinkedIn",
     },
     {
-      icon: <X className="h-5 w-5" />,
-      href: "https://linkedin.com/company/kin-fi",
-      label: "LinkedIn",
+      icon: <GitHubLogoIcon className="h-5 w-5" />,
+      href: "https://github.com/kindfi-org",
+      label: "Facebook",
     },
   ];
 
