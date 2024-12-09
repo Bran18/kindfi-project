@@ -133,7 +133,7 @@ const ProjectJourney = () => {
                 className={`rounded-full px-6 py-2 text-sm font-medium transition-all duration-200 ${
                   activeView === "project"
                     ? "gradient-btn text-white"
-                    : "text-gray-600 hover:text-blue-600"
+                    : "text-gray-600 hover:text-emerald-600"
                 }`}
                 onClick={() => setActiveView("project")}
               >
@@ -144,7 +144,7 @@ const ProjectJourney = () => {
                 className={`rounded-full px-6 py-2 text-sm font-medium transition-all duration-200 ${
                   activeView === "investor"
                     ? "gradient-btn text-white"
-                    : "text-gray-600 hover:text-purple-600"
+                    : "text-gray-600 hover:text-emerald-600"
                 }`}
                 onClick={() => setActiveView("investor")}
               >
@@ -201,7 +201,7 @@ const ProjectJourney = () => {
         >
           <Button
             size="lg"
-            className="bg-blue-700 hover:bg-blue-800 text-white px-8"
+            className="bg-indigo-900 hover:bg-indigo-800 text-white px-8"
           >
             {activeView === "project"
               ? "Register Your Project"

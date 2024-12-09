@@ -25,6 +25,7 @@ import {
 } from "@/components/ui/sheet";
 import { signOutAction } from "@/app/actions";
 import type { User } from "@supabase/supabase-js";
+import { LogoOrg } from "@/components/ui/logo-org"
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -36,7 +37,7 @@ export const Header = () => {
         <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold">KindFi</span>
+            <LogoOrg width={120} height={33} className="h-auto w-auto" />
           </Link>
 
           {/* Navigation - Hidden on mobile */}

@@ -54,14 +54,14 @@ const Custom404 = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-7xl font-bold text-blue-600 mb-4">404</h1>
+          <h1 className="text-7xl font-bold gradient-text mb-4">404</h1>
         </motion.div>
 
         <motion.h2
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          className="text-2xl font-semibold text-gray-800 mb-6"
+          className="text-2xl font-semibold gradient-text mb-6"
         >
           Lost in the World of Good
         </motion.h2>
@@ -103,13 +103,13 @@ const Custom404 = () => {
           className="flex flex-col sm:flex-row justify-center gap-4"
         >
           <Link href="/">
-            <Button className="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 group">
+            <Button className="w-full sm:w-auto bg-green-600 text-white hover:bg-emerald-700 group">
               Return Home
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
           <Link href="/projects">
-            <Button className="w-full sm:w-auto bg-white text-blue-600 border-2 border-blue-600 hover:bg-blue-50">
+            <Button className="w-full sm:w-auto bg-white text-green-600 border-2 border-emerald-600 hover:bg-blue-50">
               Discover Projects
             </Button>
           </Link>
