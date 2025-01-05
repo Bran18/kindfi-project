@@ -1,7 +1,7 @@
+import { GoogleAnalytics } from "@/components/google-analytics";
 import { Providers } from "@/components/layout/providers";
 import "./globals.css";
 import RootLayoutWrapper from "@/components/layout/layout-helpers/root-layout-wrapper";
-import Head from "next/head";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -21,26 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <Head>
-        {/* Google tag (gtag.js) */}
-        {/* biome-ignore lint/style/useSelfClosingElements: <explanation> */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-52DWMZ7R1H"
-        ></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-52DWMZ7R1H');
-          `}
-        </script>
-      </Head>
+      <head />
       <body>
         <Providers>
           <RootLayoutWrapper>{children}</RootLayoutWrapper>
         </Providers>
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-52DWMZ7R1H" />
       </body>
     </html>
   );
